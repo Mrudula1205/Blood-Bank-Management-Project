@@ -1,3 +1,4 @@
+drop table Hospital;
 create table Hospital (
 	Hospital_id VARCHAR(50),
 	BloodType VARCHAR(4),
@@ -6,7 +7,7 @@ create table Hospital (
 );
 insert into Hospital  values ('3', 'A+', 10, '2021-10-15'),
 ('6', 'B+', 8, '2022-03-18'), 
-('8', 'AB-', 7, '2023-04-08'),
+('8', 'AB+', 7, '2023-04-08'),
 ('18', 'O+', 9, '2022-09-15'),
 ('6', 'A+', 8, '2022-08-20'),
 ('7', 'B-', 10, '2021-06-18'),
@@ -24,4 +25,6 @@ insert into Hospital  values ('3', 'A+', 10, '2021-10-15'),
 ('6', 'B-', 2, '2022-07-18'),
 ('5', 'B+', 8, '2022-04-25'),
 ('4', 'A+', 6, '2023-02-19');
+
+alter table Hospital add primary key(Hospital_id,BloodType);
 
