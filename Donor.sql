@@ -24,24 +24,17 @@ END$$
 DELIMITER ;
 
 DELIMITER $$
-
-CREATE TRIGGER update_age
-BEFORE UPDATE ON Donor
-FOR EACH ROW
+DELIMITER // 
+CREATE TRIGGER update_donation_date
+BEFORE INSERT ON donation
+FOR EACH ROW 
 BEGIN
-    SET NEW.Age = TIMESTAMPDIFF(YEAR, NEW.date_of_birth, CURDATE());
-     IF NEW.Age >= 19 THEN
-        
-        INSERT INTO Donor (First_Name, Last_name,Date_of_Birth,Blood_Group,medical_report,Contact_Number,email_id,City)
-        VALUES (new.First_Name, new.Last_name,Date_of_Birth,Blood_Group,medical_report,Contact_Number,email_id,City);
-    ELSE
-        -- Raise an error or take appropriate action
-        SIGNAL SQLSTATE '45000' 
-        SET MESSAGE_TEXT = 'Age must be above 19.';
-    END IF;
-END$$
+  UPDATE donor 
+  SET Last_Donation_Date = NEW.Donation_date
+  WHERE DonorID = NEW.DonorID ;
+END//
 
-DELIMITER ;
+
 
 INSERT INTO Donor (DonorID,First_Name,Last_name,Date_of_Birth,Blood_Group,medical_report,Contact_Number,email_id,City) values
 ('DAB888650','Ayushi','Bhandari','2004-02-26','B+','No Allergies or chronical diseases','971569505399','f20210012@dubai.bits-pilani.ac.in','Mankool'),
