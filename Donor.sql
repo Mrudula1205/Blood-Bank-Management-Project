@@ -60,7 +60,6 @@ INSERT INTO Donor (DonorID,First_Name,Last_name,Date_of_Birth,Blood_Group,medica
 ;
 
 select * from Donor;
-drop function insert_new_donor;
 DELIMITER //
 
 
