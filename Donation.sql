@@ -5,7 +5,7 @@ CREATE TABLE Donation (
   DonorID VARCHAR(20) reference Donor(DonorID),
   date DATE,
   blood_group VARCHAR(3),
-  nurseID VARCHAR(20) reference Nurse(nurse_ID)
+  nurseID VARCHAR(20) reference Nurse(Nurse_id)
 );
 
 INSERT INTO Donation (CampID, DonorID, date, blood_group, nurseID) 
