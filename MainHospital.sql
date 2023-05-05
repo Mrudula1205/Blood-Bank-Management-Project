@@ -1,7 +1,10 @@
 use dbms_project;
 
 
-create table MainHospital(id int,name varchar(100),number int,address varchar(100));
+create table MainHospital(id int primary key,
+                          name varchar(100),
+                          number int,
+                          address varchar(100));
 
 INSERT INTO MainHospital (id, name, number, address) VALUES (1, "St. Mary's Hospital", 0551346781, "Bur Dubai");
 INSERT INTO MainHospital (id, name, number, address) VALUES (2, 'General Hospital', 0551164876, "Bur Dubai");
