@@ -1,11 +1,11 @@
 use dbms_project;
 
 CREATE TABLE Donation (
-  CampID VARCHAR(20),
-  DonorID VARCHAR(20),
+  CampID VARCHAR(20) reference camp(CampID),
+  DonorID VARCHAR(20) reference Donor(DonorID),
   date DATE,
   blood_group VARCHAR(3),
-  nurseID VARCHAR(20)
+  nurseID VARCHAR(20) reference Nurse(nurse_ID)
 );
 
 INSERT INTO Donation (CampID, DonorID, date, blood_group, nurseID) 
