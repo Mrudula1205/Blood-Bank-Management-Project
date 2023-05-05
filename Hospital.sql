@@ -1,6 +1,6 @@
 drop table Hospital;
 create table Hospital (
-	Hospital_id VARCHAR(50),
+	Hospital_id VARCHAR(50) primary key,
 	BloodType VARCHAR(4),
 	Quantity INT,
 	RequestDate DATE
